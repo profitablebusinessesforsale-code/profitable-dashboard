@@ -121,7 +121,8 @@ export default function ListingTable({ businessRole = "", status = "", searchTer
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Failed to approve listing. Please try again.",
+        text:         error?.data?.message ||
+          `Failed to ${activeAction === "approve" ? "approve" : "reject"} listing. Please try again.`,
       });
     }
     setActiveAction(null);
